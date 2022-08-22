@@ -1,0 +1,20 @@
+{
+  "short_name": "YouTubeChat",
+  "name": "YouTubeChat extension for chrome",
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": [
+    "http://*/",
+    "https://*/"
+  ],
+
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
