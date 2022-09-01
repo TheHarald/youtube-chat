@@ -5,9 +5,15 @@ const { body, validationResult } = require('express-validator');
 const cors = require('cors');
 const http = require('http');
 const app:Express = express()
-const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
+
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors:{
+    origin:"*",
+    methods: ["GET", "POST"]
+  }
+});
 
 
 app.use(bodyParser.json());
@@ -27,11 +33,11 @@ app.get('/api', (req, res) => {
 
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    console.log(`a user connected ${socket.id}`);
     socket.on('disconnect', () => {
       console.log('user disconnected');
     });
   });
 
 
-module.exports = app
+module.exports = server

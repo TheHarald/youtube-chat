@@ -1,5 +1,5 @@
 const application = require("./express/app");
-const PORT:number = 3001;
+const PORT =  3001;
 const db = require("./sequelize");
 
 
